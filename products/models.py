@@ -8,9 +8,9 @@ class Product(models.Model):
     category = models.CharField(max_length=100)
     stock_available = models.IntegerField()
     units_sold = models.IntegerField()
-    customer_rating = models.FloatField()
-    demand_forecast = models.FloatField()
-    optimized_price = models.DecimalField(max_digits=10, decimal_places=2)
+    customer_rating = models.FloatField(null=True, blank=True)
+    demand_forecast = models.IntegerField(null=True, blank=True)
+    optimized_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     class Meta:
         managed = False

@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from .models import Product
 from .serializers import ProductSerializer
 
-class ProductViewSet(ModelViewSet):
+class viewProducts(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
@@ -22,3 +22,23 @@ class ProductViewSet(ModelViewSet):
             "columns": columns,
             "rows": data.data
         })
+
+
+class addProduct(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+
+        if not serializer.is_valid():
+            return Response({
+                "status": 400,
+                "errors": serializer.errors
+            }, status=400)
+
+        serializer.save()
+
+        return Response({
+            "message": "Product created successfully",
+        }, status=201)
