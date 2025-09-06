@@ -21,15 +21,15 @@ class ProductViewSet(ModelViewSet):
 
         columns = [
             {"field": "name", "headerName": "Product Name"},
-            {"field": "category", "headerName": "Category"},
+            {"field": "category", "headerName": "Product Category"},
             {"field": "cost_price", "headerName": "Cost Price"},
             {"field": "selling_price", "headerName": "Selling Price"},
-            {"field": "stock_available", "headerName": "Stock Available"},
-            {"field": "customer_rating", "headerName": "Customer Rating"},
-            {"field": "demand_forecast", "headerName": "Demand Forecast"},
-            {"field": "optimized_price", "headerName": "Optimized Price"},
+            {"field": "description", "headerName": "Description"},
+            {"field": "stock_available", "headerName": "Available"},
+            # {"field": "customer_rating", "headerName": "Customer Rating"},
+            # {"field": "demand_forecast", "headerName": "Demand Forecast"},
+            # {"field": "optimized_price", "headerName": "Optimized Price"},
             {"field": "units_sold", "headerName": "Units Sold"},
-            {"field": "description", "headerName": "Description"}
         ]
 
         response_data = {
